@@ -18,8 +18,8 @@ const PALETTES = [
   { name: 'Blood Moon', colors: ['#000000','#0f0000','#1f0000','#330000','#4d0000','#6b0000','#880000','#a50000','#c40000','#e60000'] },
 ];
 
-const PATTERNS = ['flowing-hills', 'smooth-wave', 'sand-dunes', 'mountains', 'concentric-arcs', 'desert-dunes'];
-const PATTERN_LABELS = ['Colinas', 'Onda', 'Dunas', 'Montanhas', 'Arcos', 'Deserto'];
+const PATTERNS = ['flowing-hills', 'smooth-wave', 'sand-dunes', 'mountains', 'concentric-arcs', 'desert-dunes', 'synthwave', 'nebula', 'crystals', 'fluid', 'circuit'];
+const PATTERN_LABELS = ['Colinas', 'Onda', 'Dunas', 'Montanhas', 'Arcos', 'Deserto', 'Synthwave', 'Nebula', 'Cristais', 'Lava Lamp', 'Circuito'];
 
 let _seed = 0;
 
@@ -324,6 +324,295 @@ export function drawClockOverlay(ctx, w, h, type, paletteIdx, inv) {
   }
 }
 
+
+function drawSynthwave(ctx, w, h, paletteIdx, rng, inv) {
+  const sMin = Math.min(w, h) / 1000;
+  const sX = w / 1920;
+  const sY = h / 1080;
+
+  // Background gradient
+  let grd = ctx.createLinearGradient(0, 0, 0, h);
+  grd.addColorStop(0, getColor(paletteIdx, 0, inv));
+  grd.addColorStop(0.5, getColor(paletteIdx, 0.2, inv));
+  grd.addColorStop(1, '#000000');
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, w, h);
+
+  // Distant stars in the sky
+  ctx.fillStyle = getColor(paletteIdx, 0.9, inv);
+  for (let i = 0; i < 200; i++) {
+    let sx = rng() * w;
+    let sy = rng() * (h/2 + 50*sY);
+    ctx.globalAlpha = rng() * 0.8;
+    ctx.beginPath();
+    ctx.arc(sx, sy, rng() * 1.5 * sMin, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // Sun with glow
+  let sunY = h/2 + 50*sY;
+  ctx.shadowBlur = 60 * sMin;
+  ctx.shadowColor = getColor(paletteIdx, 0.6, inv);
+  let sunGrd = ctx.createLinearGradient(0, sunY - 200*sY, 0, sunY + 200*sY);
+  sunGrd.addColorStop(0, getColor(paletteIdx, 0.8, inv));
+  sunGrd.addColorStop(0.5, getColor(paletteIdx, 0.6, inv));
+  sunGrd.addColorStop(1, getColor(paletteIdx, 0.4, inv));
+  ctx.fillStyle = sunGrd;
+  ctx.beginPath();
+  ctx.arc(w/2, sunY, 250 * sMin, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.shadowBlur = 0;
+
+  // Sun horizontal slices (retro effect)
+  ctx.fillStyle = getBgColor(paletteIdx, inv);
+  for (let i = 0; i < 12; i++) {
+    let y = sunY + i * 20 * sY;
+    let sliceHeight = (2 + i * 1.2) * sY;
+    ctx.fillRect(w/2 - 300*sX, y, 600*sX, sliceHeight);
+  }
+
+  // Horizon line
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, h/2 + 80*sY, w, h);
+
+  // Perspective Grid with Glow
+  ctx.strokeStyle = getColor(paletteIdx, 0.9, inv);
+  ctx.lineWidth = 2.5 * sMin;
+  ctx.shadowBlur = 15 * sMin;
+  ctx.shadowColor = ctx.strokeStyle;
+  ctx.beginPath();
+  for (let i = 0; i < 35; i++) {
+    let y = h/2 + 80*sY + Math.pow(i, 2.3) * sY;
+    if (y > h) break;
+    ctx.moveTo(0, y);
+    ctx.lineTo(w, y);
+  }
+  let vpX = w/2;
+  let vpY = h/2 + 60*sY;
+  for (let i = -40; i <= 40; i++) {
+    let bx = w/2 + i * 150 * sX;
+    let dx = bx - vpX;
+    let dy = h - vpY;
+    ctx.moveTo(vpX + dx * 0.05, vpY + dy * 0.05);
+    ctx.lineTo(vpX + dx * 3, vpY + dy * 3);
+  }
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Cityscape
+  let buildings = [];
+  let cx = 0;
+  while (cx < w) {
+    let bWidth = (40 + rng() * 100) * sX;
+    let bHeight = (80 + rng() * 250) * sY;
+    if (cx + bWidth > w/2 - 350*sX && cx < w/2 + 350*sX) bHeight = (30 + rng() * 50) * sY;
+    
+    buildings.push({
+      x: cx,
+      w: bWidth,
+      h: bHeight,
+      windows: (bHeight > 60*sY && bWidth > 40*sX)
+    });
+    cx += bWidth + (rng() * 10 * sX);
+  }
+
+  ctx.fillStyle = '#030008';
+  ctx.beginPath();
+  ctx.moveTo(0, h/2 + 80*sY);
+  buildings.forEach(b => {
+    ctx.lineTo(b.x, h/2 + 80*sY);
+    ctx.lineTo(b.x, h/2 + 80*sY - b.h);
+    ctx.lineTo(b.x + b.w, h/2 + 80*sY - b.h);
+    ctx.lineTo(b.x + b.w, h/2 + 80*sY);
+  });
+  ctx.lineTo(w, h/2 + 80*sY);
+  ctx.fill();
+
+  ctx.fillStyle = getColor(paletteIdx, 0.7, inv);
+  ctx.shadowBlur = 5 * sMin;
+  ctx.shadowColor = ctx.fillStyle;
+  buildings.forEach(b => {
+    if (b.windows && rng() > 0.3) {
+      let winCols = Math.floor(b.w / (12 * sX));
+      let winRows = Math.floor(b.h / (15 * sY));
+      for (let c = 1; c < winCols; c++) {
+        for (let r = 1; r < winRows; r++) {
+          if (rng() > 0.4) {
+            let wx = b.x + c * 12 * sX;
+            let wy = h/2 + 80*sY - b.h + r * 15 * sY;
+            ctx.fillRect(wx, wy, 4*sX, 6*sY);
+          }
+        }
+      }
+    }
+  });
+  ctx.shadowBlur = 0;
+}
+
+function drawNebula(ctx, w, h, paletteIdx, rng, inv) {
+  const sMin = Math.min(w, h) / 1000;
+  ctx.fillStyle = getBgColor(paletteIdx, inv);
+  ctx.fillRect(0, 0, w, h);
+
+  ctx.fillStyle = getColor(paletteIdx, 0.9, inv);
+  for(let i=0; i<800; i++) {
+    let x = rng() * w;
+    let y = rng() * h;
+    let r = rng() * 1.5 * sMin;
+    ctx.globalAlpha = rng();
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  ctx.globalCompositeOperation = inv ? 'multiply' : 'screen';
+  for(let i=0; i<30; i++) {
+    let x = rng() * w;
+    let y = rng() * h;
+    let r = (200 + rng() * 600) * sMin;
+    
+    let grd = ctx.createRadialGradient(x, y, 0, x, y, r);
+    let color = getColor(paletteIdx, rng(), inv);
+    
+    // Robustly parse color (either #hex or rgb(r,g,b)) to add alpha
+    let rVal=0, gVal=0, bVal=0;
+    if (color.startsWith('#')) {
+      rVal = parseInt(color.slice(1,3), 16);
+      gVal = parseInt(color.slice(3,5), 16);
+      bVal = parseInt(color.slice(5,7), 16);
+    } else {
+      let cMatch = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+      if(cMatch) { rVal = cMatch[1]; gVal = cMatch[2]; bVal = cMatch[3]; }
+    }
+    
+    grd.addColorStop(0, `rgba(${rVal},${gVal},${bVal}, 0.15)`);
+    grd.addColorStop(1, `rgba(${rVal},${gVal},${bVal}, 0)`);
+    
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI*2);
+    ctx.fill();
+  }
+  ctx.globalCompositeOperation = 'source-over';
+}
+
+function drawCrystals(ctx, w, h, paletteIdx, rng, inv) {
+  const sMin = Math.min(w, h) / 1000;
+  ctx.fillStyle = getBgColor(paletteIdx, inv);
+  ctx.fillRect(0, 0, w, h);
+
+  for(let i=0; i<50; i++) {
+    let cx = rng() * w;
+    let cy = rng() * h;
+    let radius = (50 + rng() * 150) * sMin;
+    let points = 5 + Math.floor(rng() * 5);
+    
+    ctx.beginPath();
+    for(let j=0; j<points; j++) {
+      let angle = (j / points) * Math.PI * 2;
+      let r = radius * (0.5 + rng() * 0.5);
+      let px = cx + Math.cos(angle) * r;
+      let py = cy + Math.sin(angle) * r;
+      if (j===0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+
+    let grd = ctx.createLinearGradient(cx - radius, cy - radius, cx + radius, cy + radius);
+    grd.addColorStop(0, getColor(paletteIdx, rng(), inv));
+    grd.addColorStop(1, getColor(paletteIdx, rng(), inv));
+    
+    ctx.globalAlpha = 0.6;
+    ctx.fillStyle = grd;
+    ctx.fill();
+    ctx.strokeStyle = getColor(paletteIdx, 0.8, inv);
+    ctx.lineWidth = 1 * sMin;
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+}
+
+function drawFluid(ctx, w, h, paletteIdx, rng, inv) {
+  const sMin = Math.min(w, h) / 1000;
+  ctx.fillStyle = getBgColor(paletteIdx, inv);
+  ctx.fillRect(0, 0, w, h);
+
+  ctx.globalCompositeOperation = inv ? 'multiply' : 'screen';
+  for(let i=0; i<15; i++) {
+    let cx = rng() * w;
+    let cy = rng() * h;
+    let r = (100 + rng() * 300) * sMin;
+    
+    ctx.beginPath();
+    for(let a=0; a<Math.PI*2; a+=0.5) {
+      let noise = rng() * 50 * sMin;
+      let x = cx + Math.cos(a) * (r + noise);
+      let y = cy + Math.sin(a) * (r + noise);
+      if(a===0) ctx.moveTo(x,y);
+      else ctx.lineTo(x,y);
+    }
+    ctx.closePath();
+
+    let color = getColor(paletteIdx, rng(), inv);
+    let rVal=0, gVal=0, bVal=0;
+    if (color.startsWith('#')) {
+      rVal = parseInt(color.slice(1,3), 16);
+      gVal = parseInt(color.slice(3,5), 16);
+      bVal = parseInt(color.slice(5,7), 16);
+    } else {
+      let cMatch = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+      if(cMatch) { rVal = cMatch[1]; gVal = cMatch[2]; bVal = cMatch[3]; }
+    }
+    ctx.fillStyle = `rgba(${rVal},${gVal},${bVal}, 0.8)`;
+    
+    ctx.shadowBlur = 40 * sMin;
+    ctx.shadowColor = color;
+    ctx.fill();
+  }
+  ctx.shadowBlur = 0;
+  ctx.globalCompositeOperation = 'source-over';
+}
+
+function drawCircuit(ctx, w, h, paletteIdx, rng, inv) {
+  const sMin = Math.min(w, h) / 1000;
+  ctx.fillStyle = getBgColor(paletteIdx, inv);
+  ctx.fillRect(0, 0, w, h);
+
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  for(let i=0; i<80; i++) {
+    ctx.beginPath();
+    let x = rng() * w;
+    let y = rng() * h;
+    ctx.moveTo(x, y);
+
+    let segments = 2 + Math.floor(rng() * 5);
+    for(let s=0; s<segments; s++) {
+      if (rng() > 0.5) {
+        x += (rng() > 0.5 ? 1 : -1) * (20 + rng() * 80) * sMin;
+      } else {
+        y += (rng() > 0.5 ? 1 : -1) * (20 + rng() * 80) * sMin;
+      }
+      ctx.lineTo(x, y);
+    }
+
+    ctx.strokeStyle = getColor(paletteIdx, rng(), inv);
+    ctx.lineWidth = (2 + rng() * 4) * sMin;
+    ctx.stroke();
+
+    if (rng() > 0.3) {
+      ctx.beginPath();
+      ctx.arc(x, y, ctx.lineWidth * 1.5, 0, Math.PI*2);
+      ctx.fillStyle = getColor(paletteIdx, 0.9, inv);
+      ctx.fill();
+    }
+  }
+}
+
+
+
 export function drawPattern(ctx, w, h, patternIdx, paletteIdx, s, inv = false) {
   _seed = s;
   const rng = mulberry32(s);
@@ -337,6 +626,11 @@ export function drawPattern(ctx, w, h, patternIdx, paletteIdx, s, inv = false) {
     case 'mountains':       drawMountains(ctx, w, h, paletteIdx, rng, inv); break;
     case 'concentric-arcs': drawConcentricArcs(ctx, w, h, paletteIdx, rng, inv); break;
     case 'desert-dunes':    drawDesertDunes(ctx, w, h, paletteIdx, rng, inv); break;
+    case 'synthwave':       drawSynthwave(ctx, w, h, paletteIdx, rng, inv); break;
+    case 'nebula':          drawNebula(ctx, w, h, paletteIdx, rng, inv); break;
+    case 'crystals':        drawCrystals(ctx, w, h, paletteIdx, rng, inv); break;
+    case 'fluid':           drawFluid(ctx, w, h, paletteIdx, rng, inv); break;
+    case 'circuit':         drawCircuit(ctx, w, h, paletteIdx, rng, inv); break;
   }
 }
 
