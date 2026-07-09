@@ -41,7 +41,7 @@ nav {
   -webkit-app-region: drag;
 }
 
-nav a, nav button, nav .nav-tabs { -webkit-app-region: no-drag; }
+nav a, nav button, nav select, nav .nav-tabs, nav .theme-tabs { -webkit-app-region: no-drag; }
 
 .nav-logo {
   display: flex;
@@ -72,11 +72,11 @@ nav a, nav button, nav .nav-tabs { -webkit-app-region: no-drag; }
 
 .nav-tabs {
   display: flex;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 50px;
   padding: 3px;
   gap: 1rem;
@@ -97,8 +97,8 @@ nav a, nav button, nav .nav-tabs { -webkit-app-region: no-drag; }
 
 
 .nav-tab.active {
-  background: #1a1a1a;
-  color: #f0f0f0;
+  background: var(--text);
+  color: var(--bg);
 }
 
 .nav-actions {
@@ -144,11 +144,11 @@ nav a, nav button, nav .nav-tabs { -webkit-app-region: no-drag; }
 
 .theme-tabs {
   display: flex;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 50px;
   padding: 3px;
   gap: 1rem;
@@ -156,9 +156,42 @@ nav a, nav button, nav .nav-tabs { -webkit-app-region: no-drag; }
 
 
 .theme-tab.active {
-  background: #1a1a1a;
-  color: #f0f0f0;
+  background: var(--text);
+  color: var(--bg);
 }
+
+/* ── Language Select ── */
+.lang-select {
+  padding: 6px 28px 6px 14px;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+.lang-select:hover, .lang-select:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23f0f0f0' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.lang-select option {
+  background: var(--bg-card);
+  color: var(--text);
+  font-weight: 500;
+}
+
 
 /* ── Main Content ── */
 main {

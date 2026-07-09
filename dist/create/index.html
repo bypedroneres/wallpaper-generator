@@ -259,6 +259,9 @@
 
   <div class="nav-actions">
     <div class="nav-tabs">
+      <select class="lang-select" id="langSelect" title="Language"></select>
+    </div>
+    <div class="nav-tabs">
       <button class="nav-tab active" id="themeDark" title="Escuro" style="border: none; cursor: pointer;">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
           <path d="M7 1a6 6 0 1 0 0 12A4.5 4.5 0 0 1 7 1z"/>
@@ -291,25 +294,25 @@
 
     <div class="controls-panel">
       <div class="control-group">
-        <div class="control-label">Padrão</div>
+        <div class="control-label" data-i18n="pattern">Padrão</div>
         <div class="style-grid" id="styleGrid"></div>
       </div>
 
       <div class="control-group">
-        <div class="control-label">Paleta</div>
+        <div class="control-label" data-i18n="palette">Paleta</div>
         <div class="palette-row" id="paletteRow"></div>
       </div>
 
       <div class="control-group">
-        <div class="control-label">Modo</div>
+        <div class="control-label" data-i18n="mode">Modo</div>
         <div class="mode-toggle">
           <button class="mode-btn active" id="btnDark">
             <span class="mode-icon mode-icon-dark"></span>
-            Escuro
+            <span data-i18n="dark">Escuro</span>
           </button>
           <button class="mode-btn" id="btnLight">
             <span class="mode-icon mode-icon-light"></span>
-            Claro
+            <span data-i18n="light">Claro</span>
           </button>
         </div>
       </div>
@@ -321,7 +324,7 @@
             <polyline points="1 20 1 14 7 14"></polyline>
             <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
           </svg>
-          GERAR VARIAÇÃO
+          <span data-i18n="generateVariation">GERAR VARIAÇÃO</span>
         </button>
       </div>
 
@@ -331,18 +334,18 @@
             <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
             <path d="M2 11l3-3 2 2 4-4 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Definir Papel de Parede
+          <span data-i18n="setWallpaper">Definir Papel de Parede</span>
         </button>
 
         <button class="btn-export btn-desktop" id="btnDesktop">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="9" rx="1"/><path d="M5 15h6M8 12v3"/></svg>
-          Baixar Desktop
+          <span data-i18n="downloadDesktop">Baixar Desktop</span>
         </button>
         <div class="size-hint">3840 × 2160 px</div>
 
         <button class="btn-export btn-mobile" id="btnMobile">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="1" width="8" height="14" rx="2"/><path d="M7.5 12.5h1"/></svg>
-          Baixar iPhone
+          <span data-i18n="downloadMobile">Baixar iPhone</span>
         </button>
         <div class="size-hint">1290 × 2796 px</div>
       </div>
