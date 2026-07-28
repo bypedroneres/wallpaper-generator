@@ -40,7 +40,6 @@ PALETTES.forEach((pal, i) => {
   const swatch = document.createElement('button');
   swatch.className = 'palette-swatch' + (i === currentPalette ? ' active' : '');
   swatch.title = pal.name;
-  const colors = pal.colors;
   swatch.style.background = pal.colors[Math.floor(pal.colors.length / 2)];
   row.appendChild(swatch);
   swatch.onclick = () => {
@@ -80,42 +79,5 @@ document.getElementById('btnDesktop').onclick = () => {
 document.getElementById('btnMobile').onclick = () => {
   exportWallpaper(MOBILE_W, MOBILE_H, currentPattern, currentPalette, seed, inverted, 'wllpr-iphone.png');
 };
-
-// Apply as wallpaper
-document.getElementById('btnApply').addEventListener('click', async () => {
-  try {
-    if (!window.__TAURI__) {
-      alert('Funcionalidade disponível apenas no app desktop.');
-      return;
-    }
-    const btn = document.getElementById('btnApply');
-    btn.textContent = 'Aplicando...';
-    btn.disabled = true;
-
-    const c = document.createElement('canvas');
-    c.width = DESKTOP_W;
-    c.height = DESKTOP_H;
-    drawPattern(c.getContext('2d'), DESKTOP_W, DESKTOP_H, currentPattern, currentPalette, seed, inverted);
-    const blob = await new Promise(resolve => c.toBlob(resolve, 'image/png'));
-    const arrayBuffer = await blob.arrayBuffer();
-    const bytes = Array.from(new Uint8Array(arrayBuffer));
-    await window.__TAURI__.core.invoke('set_wallpaper', {
-      bytes,
-      filename: `wllpr-custom-${seed}.png`,
-    });
-
-    await new Promise(r => setTimeout(r, 5000));
-    btn.textContent = 'Aplicado!';
-    setTimeout(() => {
-      btn.textContent = 'Definir Papel de Parede';
-      btn.disabled = false;
-    }, 2000);
-  } catch (err) {
-    alert('Erro: ' + err);
-    const btn = document.getElementById('btnApply');
-    btn.textContent = 'Definir Papel de Parede';
-    btn.disabled = false;
-  }
-});
 
 render();
