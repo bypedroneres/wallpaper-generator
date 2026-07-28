@@ -16,6 +16,45 @@
       height: 100vh;
     }
 
+    /* Mobile: stack preview above controls, allow scrolling */
+    @media (max-width: 768px) {
+      .create-layout {
+        grid-template-columns: 1fr;   /* single column */
+        height: auto;                 /* stop clipping to viewport */
+        min-height: 100vh;
+        padding: 16px;
+        padding-top: 60px;
+        gap: 16px;
+      }
+
+      .controls-panel {
+        overflow-y: visible;          /* let the page scroll, not the panel */
+        padding-top: 0;
+      }
+
+      .preview-container {
+        flex-wrap: wrap;              /* previews wrap instead of overflowing */
+      }
+
+      /* Cap preview sizes so they never exceed screen width */
+      .preview-wrap canvas {
+        max-width: 100%;
+        height: auto;
+      }
+
+      #previewDesktop {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+      }
+
+      #previewMobile {
+        width: 120px;
+        height: auto;
+      }
+    }
+
+
     .preview-area {
       display: flex;
       flex-direction: column;
