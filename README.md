@@ -1,6 +1,6 @@
 # WLLPR — Procedural Wallpaper Generator
 
-#### Video Demo: [PASTE YOUR YOUTUBE URL HERE]
+#### Video Demo: (https://youtu.be/lKAqT-cJWVw)
 
 #### Description:
 
