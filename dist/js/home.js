@@ -1,5 +1,6 @@
 import { wallpapers, getFeatured, PATTERN_SECTIONS } from './wallpapers.js';
 import { drawPattern, PALETTES, PATTERN_LABELS } from './engine.js';
+import { initI18n, t } from './i18n.js';
 
 const THUMB_W = 320;
 const THUMB_H = 200;
@@ -27,7 +28,7 @@ document.getElementById('featuredImg').replaceWith(heroCanvas);
 
 document.getElementById('featuredTitle').textContent = featured.name;
 document.getElementById('featuredMeta').textContent =
-  `${PATTERN_LABELS[featured.pattern]} · ${PALETTES[featured.palette].name} · ${featured.inverted ? 'Claro' : 'Escuro'}`;
+  `${t('patternLabels')[featured.pattern]} · ${PALETTES[featured.palette].name} · ${featured.inverted ? t('light') : t('dark')}`;
 document.getElementById('featuredLink').href = `wallpaper/index.html?id=${featured.id}`;
 
 // Pattern-grouped carousel sections
@@ -45,8 +46,8 @@ PATTERN_SECTIONS.forEach(section => {
   header.className = 'section-header';
   header.innerHTML = `
     <div>
-      <div class="section-title">${section.title}</div>
-      <div class="section-subtitle">${section.subtitle}</div>
+      <div class="section-title">${t('patternSections')[section.pattern].title}</div>
+      <div class="section-subtitle">${t('patternSections')[section.pattern].subtitle}</div>
     </div>
     <div class="nav-arrows">
       <button class="nav-arrow scroll-left">
@@ -77,7 +78,7 @@ PATTERN_SECTIONS.forEach(section => {
     overlay.innerHTML = `
       <div class="wall-card-info">
         <div class="wall-card-name">${wp.name}</div>
-        <div class="wall-card-res">${PALETTES[wp.palette].name} · ${wp.inverted ? 'Claro' : 'Escuro'}</div>
+        <div class="wall-card-res">${PALETTES[wp.palette].name} · ${wp.inverted ? t('light') : t('dark')}</div>
       </div>
     `;
     card.appendChild(overlay);
@@ -105,4 +106,5 @@ PATTERN_SECTIONS.forEach(section => {
 requestAnimationFrame(() => {
   const overlay = document.getElementById('loadingOverlay');
   if (overlay) overlay.classList.add('hidden');
+  initI18n();
 });

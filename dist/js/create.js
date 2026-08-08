@@ -1,4 +1,5 @@
 import { drawPattern, drawClockOverlay, exportWallpaper, PALETTES, PATTERNS, PATTERN_LABELS, DESKTOP_W, DESKTOP_H, MOBILE_W, MOBILE_H } from './engine.js';
+import { initI18n, t } from './i18n.js';
 
 let currentPattern = 0;
 let currentPalette = 0;
@@ -19,7 +20,7 @@ const grid = document.getElementById('styleGrid');
 PATTERNS.forEach((_, i) => {
   const btn = document.createElement('button');
   btn.className = 'style-btn' + (i === currentPattern ? ' active' : '');
-  btn.title = PATTERN_LABELS[i];
+  btn.title = t('patternLabels')[i];
   const c = document.createElement('canvas');
   c.width = 120;
   c.height = 75;
@@ -85,11 +86,12 @@ document.getElementById('btnMobile').onclick = () => {
 document.getElementById('btnApply').addEventListener('click', async () => {
   try {
     if (!window.__TAURI__) {
-      alert('Funcionalidade disponível apenas no app desktop.');
+      alert(t('errorOnlyDesktop'));
       return;
     }
     const btn = document.getElementById('btnApply');
-    btn.textContent = 'Aplicando...';
+    const span = btn.querySelector('span') || btn;
+    span.textContent = t('applying');
     btn.disabled = true;
 
     const c = document.createElement('canvas');
@@ -105,17 +107,19 @@ document.getElementById('btnApply').addEventListener('click', async () => {
     });
 
     await new Promise(r => setTimeout(r, 5000));
-    btn.textContent = 'Aplicado!';
+    span.textContent = t('applied');
     setTimeout(() => {
-      btn.textContent = 'Definir Papel de Parede';
+      span.textContent = t('setWallpaper');
       btn.disabled = false;
     }, 2000);
   } catch (err) {
-    alert('Erro: ' + err);
+    alert(t('error') + err);
     const btn = document.getElementById('btnApply');
-    btn.textContent = 'Definir Papel de Parede';
+    const span = btn.querySelector('span') || btn;
+    span.textContent = t('setWallpaper');
     btn.disabled = false;
   }
 });
 
 render();
+initI18n();

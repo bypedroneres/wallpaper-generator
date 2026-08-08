@@ -45,6 +45,9 @@
 
   <div class="nav-actions">
     <div class="theme-tabs">
+      <select class="lang-select" id="langSelect" title="Language"></select>
+    </div>
+    <div class="theme-tabs">
       <button class="theme-tab active" id="themeDark" title="Escuro" style="border: none; cursor: pointer;">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
           <path d="M7 1a6 6 0 1 0 0 12A4.5 4.5 0 0 1 7 1z"/>
@@ -65,12 +68,12 @@
   <div class="featured" id="featuredHero">
     <img id="featuredImg" src="" alt="Featured wallpaper">
     <div class="featured-overlay">
-      <div class="featured-badge">DESTAQUE</div>
+      <div class="featured-badge" data-i18n="featuredBadge">DESTAQUE</div>
       <div class="featured-title" id="featuredTitle"></div>
       <div class="featured-meta" id="featuredMeta"></div>
       <div class="featured-actions">
         <a id="featuredLink" href="#">
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" data-i18n="viewWallpaper">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 1l6 6-6 6"/></svg>
             Ver Papel de Parede
           </button>
@@ -84,7 +87,7 @@
 </main>
 
 <footer>
-  Criado por
+  <span data-i18n="createdBy">Criado por</span>
   <a href="https://www.instagram.com/pedro___neres/" target="_blank" rel="noopener">@pedro___neres</a>
 </footer>
 
