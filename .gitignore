@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Tauri
+src-tauri/target/
+
+# IDE / editors
+.vscode/
+.idea/
+
+# OS / temporary files
+*.tmp
+*.temp
