@@ -1,4 +1,5 @@
 import { wallpapers, getWallpaper } from './wallpapers.js';
+import { initI18n, t } from './i18n.js';
 import { drawPattern, exportWallpaper, PALETTES, PATTERN_LABELS, DESKTOP_W, DESKTOP_H, MOBILE_W, MOBILE_H } from './engine.js';
 
 const params = new URLSearchParams(window.location.search);
@@ -17,9 +18,11 @@ drawPattern(canvas.getContext('2d'), 1920, 1080, wp.pattern, wp.palette, wp.seed
 document.title = `WLLPR — ${wp.name}`;
 
 // Bar info
+
 document.getElementById('barTitle').textContent = wp.name;
+
 document.getElementById('metaRes').textContent = '3840×2160';
-document.getElementById('metaPattern').textContent = PATTERN_LABELS[wp.pattern];
+document.getElementById('metaPattern').textContent = t('patternLabels')[wp.pattern];
 document.getElementById('metaPaletteName').textContent = PALETTES[wp.palette].name;
 
 // Download dropdown toggle
@@ -82,3 +85,6 @@ document.getElementById('btnSetWallpaper').addEventListener('click', async () =>
     btn.disabled = false;
   }
 });
+
+
+initI18n();

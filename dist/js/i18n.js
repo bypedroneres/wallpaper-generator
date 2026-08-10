@@ -25,13 +25,14 @@ export const translations = {
       "Dunas",
       "Montanhas",
       "Arcos",
-      "Deserto"
+      "Deserto",
+      "Synthwave",
+      "Nebulosa",
+      "Cristais",
+      "Lava Lamp",
+      "Circuito"
     ],
     "patternSections": {
-      "4": {
-        "title": "Arcos",
-        "subtitle": "Formas concêntricas e gradientes"
-      },
       "0": {
         "title": "Colinas",
         "subtitle": "Paisagens com relevo suave e árvores"
@@ -40,17 +41,41 @@ export const translations = {
         "title": "Ondas",
         "subtitle": "Curvas fluidas e suaves"
       },
-      "3": {
-        "title": "Montanhas",
-        "subtitle": "Picos rochosos e dramáticos"
-      },
       "2": {
         "title": "Dunas",
         "subtitle": "Texturas onduladas orgânicas"
       },
+      "3": {
+        "title": "Montanhas",
+        "subtitle": "Picos rochosos e dramáticos"
+      },
+      "4": {
+        "title": "Arcos",
+        "subtitle": "Formas concêntricas e gradientes"
+      },
       "5": {
         "title": "Rabisco",
         "subtitle": "Traços abstratos e curvas livres"
+      },
+      "6": {
+        "title": "Synthwave",
+        "subtitle": "Retro neon brilhante"
+      },
+      "7": {
+        "title": "Nebulosa",
+        "subtitle": "Espaço sideral"
+      },
+      "8": {
+        "title": "Cristais",
+        "subtitle": "Geometria de vidro"
+      },
+      "9": {
+        "title": "Lava Lamp",
+        "subtitle": "Fluidos orgânicos"
+      },
+      "10": {
+        "title": "Circuito",
+        "subtitle": "Tecnologia abstrata"
       }
     }
   },
@@ -80,13 +105,14 @@ export const translations = {
       "Dunes",
       "Mountains",
       "Arcs",
-      "Desert"
+      "Desert",
+      "Synthwave",
+      "Nebula",
+      "Crystals",
+      "Lava Lamp",
+      "Circuit"
     ],
     "patternSections": {
-      "4": {
-        "title": "Arcs",
-        "subtitle": "Concentric shapes and gradients"
-      },
       "0": {
         "title": "Hills",
         "subtitle": "Landscapes with smooth relief and trees"
@@ -95,17 +121,41 @@ export const translations = {
         "title": "Waves",
         "subtitle": "Fluid and smooth curves"
       },
-      "3": {
-        "title": "Mountains",
-        "subtitle": "Rocky and dramatic peaks"
-      },
       "2": {
         "title": "Dunes",
         "subtitle": "Organic wavy textures"
       },
+      "3": {
+        "title": "Mountains",
+        "subtitle": "Rocky and dramatic peaks"
+      },
+      "4": {
+        "title": "Arcs",
+        "subtitle": "Concentric shapes and gradients"
+      },
       "5": {
         "title": "Scribble",
         "subtitle": "Abstract strokes and free curves"
+      },
+      "6": {
+        "title": "Synthwave",
+        "subtitle": "Glowing retro neon"
+      },
+      "7": {
+        "title": "Nebula",
+        "subtitle": "Deep outer space"
+      },
+      "8": {
+        "title": "Crystals",
+        "subtitle": "Shattered glass geometry"
+      },
+      "9": {
+        "title": "Lava Lamp",
+        "subtitle": "Organic fluid blobs"
+      },
+      "10": {
+        "title": "Circuit",
+        "subtitle": "Abstract technology paths"
       }
     }
   },
@@ -135,13 +185,14 @@ export const translations = {
       "沙丘",
       "山脉",
       "圆弧",
-      "沙漠"
+      "沙漠",
+      "合成波",
+      "星云",
+      "水晶",
+      "熔岩灯",
+      "电路"
     ],
     "patternSections": {
-      "4": {
-        "title": "圆弧",
-        "subtitle": "同心形状和渐变"
-      },
       "0": {
         "title": "丘陵",
         "subtitle": "平缓的地形和树木景观"
@@ -150,17 +201,41 @@ export const translations = {
         "title": "波浪",
         "subtitle": "流畅光滑的曲线"
       },
-      "3": {
-        "title": "山脉",
-        "subtitle": "岩石和险峻的山峰"
-      },
       "2": {
         "title": "沙丘",
         "subtitle": "有机的波浪纹理"
       },
+      "3": {
+        "title": "山脉",
+        "subtitle": "岩石和险峻的山峰"
+      },
+      "4": {
+        "title": "圆弧",
+        "subtitle": "同心形状和渐变"
+      },
       "5": {
         "title": "涂鸦",
         "subtitle": "抽象的笔触和自由的曲线"
+      },
+      "6": {
+        "title": "合成波",
+        "subtitle": "发光的复古霓虹"
+      },
+      "7": {
+        "title": "星云",
+        "subtitle": "深空外层空间"
+      },
+      "8": {
+        "title": "水晶",
+        "subtitle": "碎玻璃几何"
+      },
+      "9": {
+        "title": "熔岩灯",
+        "subtitle": "有机流体斑点"
+      },
+      "10": {
+        "title": "电路",
+        "subtitle": "抽象技术路径"
       }
     }
   },
@@ -190,13 +265,14 @@ export const translations = {
       "टीले",
       "पहाड़",
       "आर्क",
-      "रेगिस्तान"
+      "रेगिस्तान",
+      "सिंथवेव",
+      "नेबुला",
+      "क्रिस्टल",
+      "लावा लैंप",
+      "सर्किट"
     ],
     "patternSections": {
-      "4": {
-        "title": "आर्क",
-        "subtitle": "कंसेंट्रिक आकार और ग्रेडिएंट्स"
-      },
       "0": {
         "title": "पहाड़ियां",
         "subtitle": "चिकनी राहत और पेड़ों के साथ परिदृश्य"
@@ -205,17 +281,41 @@ export const translations = {
         "title": "लहरें",
         "subtitle": "द्रव और चिकनी वक्र"
       },
-      "3": {
-        "title": "पहाड़",
-        "subtitle": "चट्टानी और नाटकीय चोटियाँ"
-      },
       "2": {
         "title": "टीले",
         "subtitle": "जैविक लहरदार बनावट"
       },
+      "3": {
+        "title": "पहाड़",
+        "subtitle": "चट्टानी और नाटकीय चोटियाँ"
+      },
+      "4": {
+        "title": "आर्क",
+        "subtitle": "कंसेंट्रिक आकार और ग्रेडिएंट्स"
+      },
       "5": {
         "title": "स्क्रैबल",
         "subtitle": "अमूर्त स्ट्रोक और मुक्त वक्र"
+      },
+      "6": {
+        "title": "सिंथवेव",
+        "subtitle": "चमकता हुआ रेट्रो नियॉन"
+      },
+      "7": {
+        "title": "नेबुला",
+        "subtitle": "गहरा बाहरी अंतरिक्ष"
+      },
+      "8": {
+        "title": "क्रिस्टल",
+        "subtitle": "टूटा हुआ कांच ज्यामिति"
+      },
+      "9": {
+        "title": "लावा लैंप",
+        "subtitle": "जैविक द्रव बूँदें"
+      },
+      "10": {
+        "title": "सर्किट",
+        "subtitle": "सार प्रौद्योगिकी पथ"
       }
     }
   },
@@ -245,13 +345,14 @@ export const translations = {
       "Dunas",
       "Montañas",
       "Arcos",
-      "Desierto"
+      "Desierto",
+      "Synthwave",
+      "Nebulosa",
+      "Cristales",
+      "Lámpara de Lava",
+      "Circuito"
     ],
     "patternSections": {
-      "4": {
-        "title": "Arcos",
-        "subtitle": "Formas concéntricas y gradientes"
-      },
       "0": {
         "title": "Colinas",
         "subtitle": "Paisajes con relieve suave y árboles"
@@ -260,17 +361,41 @@ export const translations = {
         "title": "Olas",
         "subtitle": "Curvas fluidas y suaves"
       },
-      "3": {
-        "title": "Montañas",
-        "subtitle": "Picos rocosos y dramáticos"
-      },
       "2": {
         "title": "Dunas",
         "subtitle": "Texturas onduladas orgánicas"
       },
+      "3": {
+        "title": "Montañas",
+        "subtitle": "Picos rocosos y dramáticos"
+      },
+      "4": {
+        "title": "Arcos",
+        "subtitle": "Formas concéntricas y gradientes"
+      },
       "5": {
         "title": "Garabato",
         "subtitle": "Trazos abstractos y curvas libres"
+      },
+      "6": {
+        "title": "Synthwave",
+        "subtitle": "Neón retro brillante"
+      },
+      "7": {
+        "title": "Nebulosa",
+        "subtitle": "Espacio exterior profundo"
+      },
+      "8": {
+        "title": "Cristales",
+        "subtitle": "Geometría de vidrio roto"
+      },
+      "9": {
+        "title": "Lámpara de Lava",
+        "subtitle": "Gotas de fluido orgánico"
+      },
+      "10": {
+        "title": "Circuito",
+        "subtitle": "Rutas de tecnología abstracta"
       }
     }
   },
@@ -300,13 +425,14 @@ export const translations = {
       "Dunes",
       "Montagnes",
       "Arcs",
-      "Désert"
+      "Désert",
+      "Synthwave",
+      "Nébuleuse",
+      "Cristaux",
+      "Lampe à Lave",
+      "Circuit"
     ],
     "patternSections": {
-      "4": {
-        "title": "Arcs",
-        "subtitle": "Formes concentriques et dégradés"
-      },
       "0": {
         "title": "Collines",
         "subtitle": "Paysages avec relief doux et arbres"
@@ -315,17 +441,41 @@ export const translations = {
         "title": "Vagues",
         "subtitle": "Courbes fluides et douces"
       },
-      "3": {
-        "title": "Montagnes",
-        "subtitle": "Pics rocheux et dramatiques"
-      },
       "2": {
         "title": "Dunes",
         "subtitle": "Textures ondulées organiques"
       },
+      "3": {
+        "title": "Montagnes",
+        "subtitle": "Pics rocheux et dramatiques"
+      },
+      "4": {
+        "title": "Arcs",
+        "subtitle": "Formes concentriques et dégradés"
+      },
       "5": {
         "title": "Gribouillage",
         "subtitle": "Traits abstraits et courbes libres"
+      },
+      "6": {
+        "title": "Synthwave",
+        "subtitle": "Néon rétro brillant"
+      },
+      "7": {
+        "title": "Nébuleuse",
+        "subtitle": "Espace lointain"
+      },
+      "8": {
+        "title": "Cristaux",
+        "subtitle": "Géométrie de verre brisé"
+      },
+      "9": {
+        "title": "Lampe à Lave",
+        "subtitle": "Gouttes de fluide organique"
+      },
+      "10": {
+        "title": "Circuit",
+        "subtitle": "Chemins technologiques abstraits"
       }
     }
   },
@@ -355,13 +505,14 @@ export const translations = {
       "كثبان",
       "جبال",
       "أقواس",
-      "صحراء"
+      "صحراء",
+      "سنثويف",
+      "سديم",
+      "بلورات",
+      "مصباح الحمم",
+      "دائرة"
     ],
     "patternSections": {
-      "4": {
-        "title": "أقواس",
-        "subtitle": "أشكال متحدة المركز وتدرجات"
-      },
       "0": {
         "title": "تلال",
         "subtitle": "مناظر طبيعية بتضاريس ناعمة وأشجار"
@@ -370,17 +521,41 @@ export const translations = {
         "title": "أمواج",
         "subtitle": "منحنيات سائلة وناعمة"
       },
-      "3": {
-        "title": "جبال",
-        "subtitle": "قمم صخرية ودرامية"
-      },
       "2": {
         "title": "كثبان",
         "subtitle": "نسيج متموج عضوي"
       },
+      "3": {
+        "title": "جبال",
+        "subtitle": "قمم صخرية ودرامية"
+      },
+      "4": {
+        "title": "أقواس",
+        "subtitle": "أشكال متحدة المركز وتدرجات"
+      },
       "5": {
         "title": "خربشة",
         "subtitle": "ضربات مجردة ومنحنيات حرة"
+      },
+      "6": {
+        "title": "سنثويف",
+        "subtitle": "نيون ريترو متوهج"
+      },
+      "7": {
+        "title": "سديم",
+        "subtitle": "الفضاء الخارجي العميق"
+      },
+      "8": {
+        "title": "بلورات",
+        "subtitle": "هندسة الزجاج المحطم"
+      },
+      "9": {
+        "title": "مصباح الحمم",
+        "subtitle": "نقط سائلة عضوية"
+      },
+      "10": {
+        "title": "دائرة",
+        "subtitle": "مسارات تكنولوجية مجردة"
       }
     }
   },
@@ -410,13 +585,14 @@ export const translations = {
       "বালিয়াড়ি",
       "পর্বতমালা",
       "আর্কস",
-      "মরুভূমি"
+      "মরুভূমি",
+      "সিন্থওয়েভ",
+      "নেবুলা",
+      "স্ফটিক",
+      "লাভা ল্যাম্প",
+      "সার্কিট"
     ],
     "patternSections": {
-      "4": {
-        "title": "আর্কস",
-        "subtitle": "কেন্দ্রিক আকার এবং গ্রেডিয়েন্ট"
-      },
       "0": {
         "title": "পাহাড়",
         "subtitle": "মসৃণ ত্রাণ এবং গাছ সহ ল্যান্ডস্কেপ"
@@ -425,17 +601,41 @@ export const translations = {
         "title": "ঢেউ",
         "subtitle": "তরল এবং মসৃণ বক্ররেখা"
       },
-      "3": {
-        "title": "পর্বতমালা",
-        "subtitle": "পাথুরে এবং নাটকীয় চূড়া"
-      },
       "2": {
         "title": "বালিয়াড়ি",
         "subtitle": "জৈব তরঙ্গায়িত টেক্সচার"
       },
+      "3": {
+        "title": "পর্বতমালা",
+        "subtitle": "পাথুরে এবং নাটকীয় চূড়া"
+      },
+      "4": {
+        "title": "আর্কস",
+        "subtitle": "কেন্দ্রিক আকার এবং গ্রেডিয়েন্ট"
+      },
       "5": {
         "title": "স্ক্রিবল",
         "subtitle": "বিমূর্ত স্ট্রোক এবং মুক্ত বক্ররেখা"
+      },
+      "6": {
+        "title": "সিন্থওয়েভ",
+        "subtitle": "উজ্জ্বল রেট্রো নিয়ন"
+      },
+      "7": {
+        "title": "নেবুলা",
+        "subtitle": "গভীর মহাকাশ"
+      },
+      "8": {
+        "title": "স্ফটিক",
+        "subtitle": "ভাঙ্গা কাচের জ্যামিতি"
+      },
+      "9": {
+        "title": "লাভা ল্যাম্প",
+        "subtitle": "জৈব তরল ফোঁটা"
+      },
+      "10": {
+        "title": "সার্কিট",
+        "subtitle": "বিমূর্ত প্রযুক্তি পথ"
       }
     }
   },
@@ -465,13 +665,14 @@ export const translations = {
       "Дюны",
       "Горы",
       "Дуги",
-      "Пустыня"
+      "Пустыня",
+      "Синтвейв",
+      "Туманность",
+      "Кристаллы",
+      "Лава-лампа",
+      "Схема"
     ],
     "patternSections": {
-      "4": {
-        "title": "Дуги",
-        "subtitle": "Концентрические формы и градиенты"
-      },
       "0": {
         "title": "Холмы",
         "subtitle": "Пейзажи с мягким рельефом и деревьями"
@@ -480,17 +681,41 @@ export const translations = {
         "title": "Волны",
         "subtitle": "Плавные и мягкие изгибы"
       },
-      "3": {
-        "title": "Горы",
-        "subtitle": "Скалистые и драматичные вершины"
-      },
       "2": {
         "title": "Дюны",
         "subtitle": "Органические волнистые текстуры"
       },
+      "3": {
+        "title": "Горы",
+        "subtitle": "Скалистые и драматичные вершины"
+      },
+      "4": {
+        "title": "Дуги",
+        "subtitle": "Концентрические формы и градиенты"
+      },
       "5": {
         "title": "Каракули",
         "subtitle": "Абстрактные штрихи и свободные линии"
+      },
+      "6": {
+        "title": "Синтвейв",
+        "subtitle": "Светящийся ретро-неон"
+      },
+      "7": {
+        "title": "Туманность",
+        "subtitle": "Глубокий космос"
+      },
+      "8": {
+        "title": "Кристаллы",
+        "subtitle": "Геометрия битого стекла"
+      },
+      "9": {
+        "title": "Лава-лампа",
+        "subtitle": "Органические капли жидкости"
+      },
+      "10": {
+        "title": "Схема",
+        "subtitle": "Абстрактные технологические пути"
       }
     }
   },
@@ -520,13 +745,14 @@ export const translations = {
       "ٹیلے",
       "پہاڑ",
       "قوس",
-      "صحرائی"
+      "صحرائی",
+      "سنتھ ویو",
+      "نیبولا",
+      "کرسٹل",
+      "لاوا لیمپ",
+      "سرکٹ"
     ],
     "patternSections": {
-      "4": {
-        "title": "قوس",
-        "subtitle": "مرکوز شکلیں اور گریڈینٹ"
-      },
       "0": {
         "title": "پہاڑیاں",
         "subtitle": "ہموار ریلیف اور درختوں کے ساتھ مناظر"
@@ -535,17 +761,41 @@ export const translations = {
         "title": "لہریں",
         "subtitle": "سیال اور ہموار منحنی خطوط"
       },
-      "3": {
-        "title": "پہاڑ",
-        "subtitle": "چٹانی اور ڈرامائی چوٹیاں"
-      },
       "2": {
         "title": "ٹیلے",
         "subtitle": "نامیاتی لہر دار بناوٹ"
       },
+      "3": {
+        "title": "پہاڑ",
+        "subtitle": "چٹانی اور ڈرامائی چوٹیاں"
+      },
+      "4": {
+        "title": "قوس",
+        "subtitle": "مرکوز شکلیں اور گریڈینٹ"
+      },
       "5": {
         "title": "خربشہ",
         "subtitle": "تجریدی اسٹروک اور آزاد منحنی خطوط"
+      },
+      "6": {
+        "title": "سنتھ ویو",
+        "subtitle": "چمکتا ہوا ریٹرو نیین"
+      },
+      "7": {
+        "title": "نیبولا",
+        "subtitle": "گہری بیرونی خلا"
+      },
+      "8": {
+        "title": "کرسٹل",
+        "subtitle": "بکھرے ہوئے شیشے کی جیومیٹری"
+      },
+      "9": {
+        "title": "لاوا لیمپ",
+        "subtitle": "نامیاتی سیال کے قطرے"
+      },
+      "10": {
+        "title": "سرکٹ",
+        "subtitle": "خلاصہ ٹیکنالوجی کے راستے"
       }
     }
   }

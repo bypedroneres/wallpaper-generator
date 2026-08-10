@@ -226,6 +226,23 @@
   <canvas id="wallpaperCanvas"></canvas>
 </div>
 
+
+<!-- Language Selector -->
+<div style="position:fixed; top:16px; right:16px; z-index:10; background:rgba(0,0,0,0.5); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); padding:6px 10px; border-radius:50px; border:1px solid rgba(255,255,255,0.12);">
+  <select id="langSelect" style="background:transparent; color:#fff; border:none; outline:none; font-size:13px; font-weight:600; cursor:pointer;">
+    <option value="pt">PT</option>
+    <option value="en">EN</option>
+    <option value="zh">ZH</option>
+    <option value="hi">HI</option>
+    <option value="es">ES</option>
+    <option value="fr">FR</option>
+    <option value="ar">AR</option>
+    <option value="bn">BN</option>
+    <option value="ru">RU</option>
+    <option value="ur">UR</option>
+  </select>
+</div>
+
 <!-- Back button -->
 <a href="../index.html" class="viewer-back">
   <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3L4 8l6 5"/></svg>
@@ -234,7 +251,7 @@
 <!-- Bottom floating bar -->
 <div class="viewer-bar">
   <div class="bar-info">
-    <div class="bar-title" id="barTitle"></div>
+    <div class="bar-title" id="barTitle" style="display:flex;align-items:center;gap:6px;"></div>
     <div class="bar-meta" id="barMeta">
       <div class="bar-meta-item">
         <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="10" height="7" rx="1"/><path d="M3 1v2M9 1v2"/></svg>
@@ -257,11 +274,11 @@
         </svg>
       </button>
       <div class="download-dropdown" id="downloadDropdown">
-        <button class="download-option" id="btnDownloadDesktop">
+        <button class="download-option" id="btnDownloadDesktop" data-i18n="downloadDesktop">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="9" rx="1"/><path d="M5 15h6M8 12v3"/></svg>
           <span>3840×2160</span>
         </button>
-        <button class="download-option" id="btnDownloadMobile">
+        <button class="download-option" id="btnDownloadMobile" data-i18n="downloadMobile">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="1" width="8" height="14" rx="2"/><path d="M7.5 12.5h1"/></svg>
           <span>1290×2796</span>
         </button>
@@ -269,7 +286,7 @@
     </div>
 
     <!-- Set wallpaper -->
-    <button class="bar-set-btn" id="btnSetWallpaper">Definir Papel de Parede</button>
+    <button class="bar-set-btn" id="btnSetWallpaper" data-i18n="setWallpaper">Definir Papel de Parede</button>
   </div>
 </div>
 
@@ -278,7 +295,7 @@
   <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M3.5 8.5l3 3 6-6"/>
   </svg>
-  <span id="toastMsg">Download concluído</span>
+  <span id="toastMsg" data-i18n="applied">Download concluído</span>
 </div>
 
 <script type="module" src="../js/wallpapers.js"></script>
